@@ -1,0 +1,28 @@
+//3. Longest Substring Without Repeating Characters
+
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if(s.length()<=1){
+            return s.length();
+        }
+        String longest="";
+        for(int i = 0 ; i<=s.length()-1;i++)
+        {
+            String substring="";
+            for(int j=i;j<=s.length()-1;j++){
+                if(substring.indexOf(s.charAt(j))!=-1){
+                    break;
+                }
+                substring=substring+s.charAt(j);
+               
+                }
+                 if(substring.length()>longest.length()){
+                    longest=substring;
+            }
+
+        }
+        return longest.length();
+        
+    }
+}
