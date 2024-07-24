@@ -1,0 +1,36 @@
+//4. Median of Two Sorted Arrays
+
+
+import java.util.Arrays;
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+     int[] arr  = new int[nums1.length+nums2.length];
+     int a=0,b=0,c=0;
+     while(a<nums1.length&&b<nums2.length){
+        if(nums1[a]<=nums2[b]){
+            arr[c]=nums1[a];
+            a++;
+            c++;
+        }
+        else{
+            arr[c]=nums2[b];
+            b++;
+            c++;
+        }
+     }
+     while(a<nums1.length){
+        arr[c]=nums1[a];
+        a++;
+        c++;
+     } 
+       while(b<nums2.length){
+        arr[c]=nums2[b];
+        b++;
+        c++;
+     }
+     int n=arr.length;
+    
+        return n%2!=0 ? arr[n/2] :(double)(arr[n/2]+arr[(n/2)-1])/2;
+     } 
+    }
+
